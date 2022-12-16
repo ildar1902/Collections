@@ -3,6 +3,7 @@ package supermarket;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
+import java.util.Random;
 
 public class Supermarket {
     private static final List<String> NAMES = List.of(
@@ -25,6 +26,8 @@ public class Supermarket {
             "Екатерина Скворцова",
             "Елена Берёзина"
     );
+
+    private final static Random RANDOM = new Random();
 
 
     public static void main(String[] args) {
@@ -58,6 +61,14 @@ public class Supermarket {
         System.out.println(queue1);
         System.out.println(queue2);
         System.out.println(queue3);
+        addHuman(NAMES.get(4), queue1, queue2,queue3);
+        System.out.println(queue1);
+        System.out.println(queue2);
+        System.out.println(queue3);
+        remove(queue1, queue2);
+        System.out.println(queue1);
+        System.out.println(queue2);
+
 
     }
 
@@ -77,6 +88,15 @@ public class Supermarket {
         } else {
             queue2.offer(s);
             System.out.println(s + " добавлен(а) во вторую очередь!");
+        }
+    }
+
+    private static void remove(Queue<String> queue1,
+                               Queue<String> queue2) {
+        if (RANDOM.nextBoolean()) {
+            queue1.poll();
+        } else {
+            queue2.poll();
         }
     }
 }
