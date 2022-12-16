@@ -1,16 +1,14 @@
-import driver.Driver;
 import driver.DriverB;
 import driver.DriverC;
 import driver.DriverD;
 import transport.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("    Урок \"Коллекции\". Задание 1.");
+        System.out.println("    Урок \"Коллекции\". ДЗ 1.");
         System.out.println();
         Mechanic<Car> fedor = new Mechanic<>(
                 "Фёдор",
@@ -48,7 +46,7 @@ public class Main {
                 true,
                 8, DriverB.Category.B);
 
-        Transport toyota = new Car(
+        Car toyota = new Car(
                 "Toyota",
                 "Altezza",
                 2.0,
@@ -63,7 +61,7 @@ public class Main {
                 true,
                 6, DriverB.Category.B);
 
-        Transport subaru = new Car(
+        Car subaru = new Car(
                 "Subaru",
                 "Impreza",
                 2.0,
@@ -75,7 +73,7 @@ public class Main {
                 "Борис Макеев",
                 true,
                 7, DriverB.Category.B);
-        Transport honda = new Car(
+        Car honda = new Car(
                 "Honda",
                 "Accord",
                 2.0,
@@ -86,7 +84,7 @@ public class Main {
                 "Роберт Ризванов",
                 true,
                 8, DriverB.Category.B);
-        Transport nissan = new Car(
+        Car nissan = new Car(
                 "Nissan",
                 "Skyline",
                 2.4,
@@ -110,7 +108,7 @@ public class Main {
                 true,
                 6, DriverC.Category.C);
 
-        Transport kamaz4310 = new Truck(
+        Truck kamaz4310 = new Truck(
                 "КамАЗ",
                 "4310",
                 10.8, dt1);
@@ -122,7 +120,7 @@ public class Main {
                 true,
                 12, DriverC.Category.C);
 
-        Transport kamaz49250 = new Truck(
+        Truck kamaz49250 = new Truck(
                 "КамАЗ",
                 "49250",
                 11.8,
@@ -135,7 +133,7 @@ public class Main {
                 true,
                 8, DriverC.Category.C);
 
-        Transport kamaz49251 = new Truck(
+        Truck kamaz49251 = new Truck(
                 "КамАЗ",
                 "49251",
                 12.8, dt3);
@@ -147,7 +145,7 @@ public class Main {
                 true,
                 12, DriverC.Category.C);
 
-        Transport kamaz49252 = new Truck(
+        Truck kamaz49252 = new Truck(
                 "КамАЗ",
                 "49252",
                 17.2, dt4);
@@ -221,20 +219,35 @@ public class Main {
         System.out.println();
 
         System.out.println("    Список всех участников: ");
-        for (int i = 0; i < competingAuto.size(); i++) {
-            System.out.println(competingAuto.get(i));
-            }
+        for (Transport value : competingAuto) {
+            System.out.println(value);
+        }
         System.out.println();
         for (Transport transport : competingAuto) {
             printInfo(transport);
         }
+        System.out.println();
+        System.out.println("    Урок \"Коллекции\". ДЗ2. Задание 1.");
+        System.out.println();
+        ServiceStation stoMasterov = new ServiceStation();
+        stoMasterov.add(toyota);
+        stoMasterov.add(subaru);
+        stoMasterov.add(honda);
+        stoMasterov.add(nissan);
+        stoMasterov.add(kamaz4310);
+        stoMasterov.add(kamaz49250);
+        stoMasterov.add(kamaz49251);
+        stoMasterov.add(kamaz49252);
+        stoMasterov.service();
+
+
     }
+
     public static void printInfo(Transport transport) {
         System.out.println("    Информация по транспорту \"" + transport.getBrand() + "\" \""
                 + transport.getModel() + "\":");
         System.out.println("Водитель: " + transport.getDriver().toString());
-        System.out.println("Спонсоры: " +transport.getSponsors());
-
+        System.out.println("Спонсоры: " + transport.getSponsors());
         System.out.println("Механики: " + transport.getMechanics());
     }
 }

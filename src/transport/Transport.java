@@ -78,7 +78,7 @@ public abstract class Transport {
     public String toString() {
         return "\"" + brand + "\" \"" +
                 model +"\"" +
-                ", объём двигателя: " + engineVolume;
+                ", объём двигателя: " + getEngineVolume();
     }
 
     public abstract void fix();
