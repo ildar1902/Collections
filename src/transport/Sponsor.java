@@ -30,4 +30,9 @@ public class Sponsor {
             this.amountOfSupport = amountOfSupport;
         }
     }
+
+    @Override
+    public String toString() {
+        return name + ". Сумма поддержки: " + amountOfSupport + " рублей";
+    }
 }

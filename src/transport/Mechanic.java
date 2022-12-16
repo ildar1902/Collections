@@ -9,13 +9,11 @@ public class Mechanic<T extends Transport> {
     private final String name;
     private final String surname;
     private String company;
-//    private List<Transport> transports;
 
-    public Mechanic(String name, String surname, String company/*, List<Transport> transports*/) {
+    public Mechanic(String name, String surname, String company) {
         this.name = name;
         this.surname = surname;
         this.company = company;
-//        transports = new ArrayList<>();
     }
 
     public boolean service(T t) {
@@ -42,11 +40,9 @@ public class Mechanic<T extends Transport> {
         this.company = company;
     }
 
-//    public List<Transport> getTransports() {
-//        return transports;
-//    }
-
-//    public void setTransports(List<Transport> transports) {
-//        this.transports = transports;
-//    }
+    @Override
+    public String toString() {
+        return name + " " + surname +
+                " из компании \"" + company + "\"";
+    }
 }

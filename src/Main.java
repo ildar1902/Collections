@@ -44,9 +44,9 @@ public class Main {
 
         Sponsor samsung = new Sponsor("Samsung", 2_500_000);
         DriverB dc1 = new DriverB(
-                "name1",
+                "Сергей Вачевский",
                 true,
-                8);
+                8, DriverB.Category.B);
 
         Transport toyota = new Car(
                 "Toyota",
@@ -59,9 +59,9 @@ public class Main {
         toyota.addSponsor(tnk);
 
         DriverB dc2 = new DriverB(
-                "name2",
+                "Станислав Родин",
                 true,
-                6);
+                6, DriverB.Category.B);
 
         Transport subaru = new Car(
                 "Subaru",
@@ -72,9 +72,9 @@ public class Main {
         subaru.addSponsor(tnk);
 
         DriverB dc3 = new DriverB(
-                "name3",
+                "Борис Макеев",
                 true,
-                7);
+                7, DriverB.Category.B);
         Transport honda = new Car(
                 "Honda",
                 "Accord",
@@ -83,9 +83,9 @@ public class Main {
         honda.addMechanic(fedor);
         honda.addSponsor(nikita);
         DriverB dc4 = new DriverB(
-                "name10",
+                "Роберт Ризванов",
                 true,
-                8);
+                8, DriverB.Category.B);
         Transport nissan = new Car(
                 "Nissan",
                 "Skyline",
@@ -106,9 +106,9 @@ public class Main {
                 "СТО \"У Михалыча\"");
 
         DriverC dt1 = new DriverC(
-                "name4",
+                "Дуэйн Джонсон",
                 true,
-                6);
+                6, DriverC.Category.C);
 
         Transport kamaz4310 = new Truck(
                 "КамАЗ",
@@ -118,9 +118,9 @@ public class Main {
         kamaz4310.addSponsor(huawei);
 
         DriverC dt2 = new DriverC(
-                "name11",
+                "Райан Рейнольдс",
                 true,
-                12);
+                12, DriverC.Category.C);
 
         Transport kamaz49250 = new Truck(
                 "КамАЗ",
@@ -131,9 +131,9 @@ public class Main {
         kamaz49250.addSponsor(lukoil);
 
         DriverC dt3 = new DriverC(
-                "name5",
+                "Хью Джекман",
                 true,
-                8);
+                8, DriverC.Category.C);
 
         Transport kamaz49251 = new Truck(
                 "КамАЗ",
@@ -143,9 +143,9 @@ public class Main {
         kamaz49251.addSponsor(samsung);
 
         DriverC dt4 = new DriverC(
-                "name6",
+                "Стив Роджерс",
                 true,
-                12);
+                12, DriverC.Category.C);
 
         Transport kamaz49252 = new Truck(
                 "КамАЗ",
@@ -165,9 +165,9 @@ public class Main {
                 "\"Fix Auto Premium Grand Plus Max\"");
 
         DriverD db1 = new DriverD(
-                "name7",
+                "Крис Эванс",
                 true,
-                9);
+                9, DriverD.Category.D);
 
         Transport bus1 = new Bus(
                 "Bus 1",
@@ -177,9 +177,9 @@ public class Main {
         bus1.addSponsor(samsung);
 
         DriverD db2 = new DriverD(
-                "name8",
+                "Тони Старк",
                 true,
-                8);
+                8, DriverD.Category.D);
 
         Transport bus2 = new Bus(
                 "Bus 2",
@@ -189,9 +189,9 @@ public class Main {
         bus2.addSponsor(lukoil);
 
         DriverD db3 = new DriverD(
-                "name9",
+                "Брюс Беннер",
                 true,
-                11);
+                11, DriverD.Category.D);
 
         Transport bus3 = new Bus(
                 "Bus 3",
@@ -201,9 +201,9 @@ public class Main {
         bus3.addSponsor(nikita);
 
         DriverD db4 = new DriverD(
-                "name12",
+                "Питер Паркер",
                 true,
-                11);
+                11, DriverD.Category.D);
 
         Transport bus4 = new Bus(
                 "Bus 4",
@@ -223,21 +223,18 @@ public class Main {
         System.out.println("    Список всех участников: ");
         for (int i = 0; i < competingAuto.size(); i++) {
             System.out.println(competingAuto.get(i));
+            }
+        System.out.println();
+        for (Transport transport : competingAuto) {
+            printInfo(transport);
         }
     }
-
     public static void printInfo(Transport transport) {
         System.out.println("    Информация по транспорту \"" + transport.getBrand() + "\" \""
                 + transport.getModel() + "\":");
-        System.out.println("Водитель: " + transport.getDriver().getName());
-        System.out.println("Спонсоры:");
-        for (int i = 0; i < transport.getSponsors().size(); i++) {
-            System.out.println(transport.getSponsors().get(i).getName());
-        }
-        System.out.println("Механики:");
-        for (int i = 0; i < transport.getMechanics().size(); i++) {
-            System.out.println(transport.getMechanics().get(i).getSurname() + " "
-                    + transport.getMechanics().get(i).getName());
-        }
+        System.out.println("Водитель: " + transport.getDriver().toString());
+        System.out.println("Спонсоры: " +transport.getSponsors());
+
+        System.out.println("Механики: " + transport.getMechanics());
     }
 }
