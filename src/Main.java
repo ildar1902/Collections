@@ -3,6 +3,7 @@ import driver.DriverC;
 import driver.DriverD;
 import transport.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -227,6 +228,7 @@ public class Main {
             printInfo(transport);
         }
         System.out.println();
+//        Дз2. Задание1
         System.out.println("    Урок \"Коллекции\". ДЗ2. Задание 1.");
         System.out.println();
         ServiceStation stoMasterov = new ServiceStation();
@@ -239,8 +241,27 @@ public class Main {
         stoMasterov.add(kamaz49251);
         stoMasterov.add(kamaz49252);
         stoMasterov.service();
+        System.out.println();
+//Дз2. Задание 3.
+        System.out.println("Дз 2. Задание 3.");
+        example();
+    }
+    private static void example() {
+        List<List<String>> biDemArrList = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            biDemArrList.add(i, new ArrayList<>());
+            for (int j = 0; j < 8; j++) {
+                biDemArrList.get(i).add(j,(i+j)%2==1 ? "●":"◯");
+            }
+        }
 
 
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(biDemArrList.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static void printInfo(Transport transport) {

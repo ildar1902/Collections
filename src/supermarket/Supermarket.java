@@ -6,6 +6,7 @@ import java.util.Queue;
 import java.util.Random;
 
 public class Supermarket {
+    //ДЗ 2. Задание 2
     private static final List<String> NAMES = List.of(
             "Андрей Иванов",
             "Иван Андреев",
